@@ -1,3 +1,3 @@
 <div>
-    <h1>Je suis Abdelali</h1>
+    <button wire:click="handleClick">Dump</button>
 </div>
