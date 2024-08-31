@@ -2,15 +2,24 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Playground extends Component
 {
-    public function handleClick() {
-        dump('YAAAAY');
+    public function addUser() {
+        User::create([
+            'name' => fake()->name(),
+            'email' => fake()->email(),
+            'password' => 'ABC',
+        ]);
     }
+    
     public function render()
     {
-        return view('livewire.playground');
+        $users = User::all();
+        return view('livewire.playground', [
+            'users' => $users,
+        ]);
     }
 }
